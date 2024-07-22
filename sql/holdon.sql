@@ -1,0 +1,31 @@
+-- with t1 as (
+--     select contest_id, challenge_id
+--     from colleges
+--     natural join challenges
+--     group by contest_id, challenge_id
+-- )
+-- select contest_id, hacker_id, name,
+--     sum(total_submissions), sum(total_accepted_submissions), 
+--     sum(total_views), sum(total_unique_views)
+-- from contests
+-- natural join t1
+-- natural join view_stats
+-- natural join submission_stats
+-- group by contest_id, hacker_id, name
+-- having     sum(total_submissions) + sum(total_accepted_submissions) + sum(total_views) + sum(total_unique_views) > 0
+-- order by contest_id;
+
+-- select contest_id, hacker_id, name, college_id, challenge_id,total_submissions, total_accepted_submissions, total_views, total_unique_views
+-- from contests
+-- natural join colleges
+-- natural join challenges
+-- natural join view_stats
+-- natural join submission_stats
+-- where contest_id = 845;
+
+-- select college_id, distinct contest_id from colleges;
+
+-- select contest_id, challenge_id
+-- from colleges
+-- natural join challenges
+-- group by contest_id, challenge_id;
