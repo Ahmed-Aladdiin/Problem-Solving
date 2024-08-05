@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <climits>
 using namespace std;
 
 class Solution {
@@ -9,26 +10,12 @@ class Solution {
     cin >> n;
 
     vector<int> vec(n);
-    vector<long long> sum(n, 0);
-    int count = 0;
-    for (int & i: vec) cin >> i;
-    if (!vec[0]) count++;
-    bool skip = false;
-
-    for (int i = 1; i < n; i++) {
-      skip = false;
-      sum[i] = sum[i-1] + vec[i-1];
-      if (sum[i] == vec[i]) {
-        count++;
-        skip = true;
-      }
-      for (int j = 0; j < i; j++) {
-        sum[j] += vec[i];
-        if (sum[j] == vec[j] && !skip) {
-          count++;
-          skip = true;
-        }
-      }
+    long long count = 0, maxi = INT_MIN, sum = 0;
+    for (int & i: vec) {
+      cin >> i;
+      maxi = (maxi > i)? maxi : i;
+      sum += i;
+      if (sum == 2 * maxi) count++;
     }
     
     cout << count << endl;
