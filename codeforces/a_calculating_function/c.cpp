@@ -1,4 +1,3 @@
-// #include <algorithm>
 #include <iostream>
 // #include <vector>
 using namespace std;
@@ -6,21 +5,18 @@ using namespace std;
 class Solution {
   void solve()
   {
-    int a, b, c, d;
-    cin >> a >> b >> c >> d;
+    long long n;
+    cin >> n;
 
-    int count = 0;
-    if ((a > c && b >= d) || (b > d && a >= c)) count += 2;
-    if ((a > d && b >= c) || (b > c && a >= d)) count += 2;
-
-    cout << count << '\n';
+    if (n%2) cout << -(n+1)/2;
+    else cout << n/2;
   }
 
 public:
   void Solve()
   {
     int it = 1;
-    cin >> it;
+    // cin >> it;
     while(it--) solve();
   }
 };
@@ -32,3 +28,11 @@ int main()
   s.Solve();
   return 0;
 }
+
+// 1 -> -1
+// 2 -> 1
+// 3 -> -2
+// 4 -> 2
+// 5 -> -3
+// 6 -> 3
+// 7 -> -4 
